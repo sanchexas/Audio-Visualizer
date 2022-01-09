@@ -10,8 +10,18 @@ logo = document.getElementById("logo").style
 audio = document.getElementById("audio");
 
 window.onclick = function(){
-    preparation();
-    audio.play();
+    if(!context){
+        preparation();
+    }
+    
+    if(audio.paused){
+        audio.play();
+        loop();
+    }else{
+        audio.pause();
+    }
+    
+
 }
 
 function preparation(){
@@ -24,7 +34,10 @@ function preparation(){
 }
 
 function loop(){
-    window.requestAnimationFrame(loop);
+    if(!audio.paused){
+       window.requestAnimationFrame(loop); 
+    }
+    
     array = new Uint8Array(analyzer.frequencyBinCount);
     analyzer.getByteFrequencyData(array);
 
