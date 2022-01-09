@@ -4,3 +4,12 @@
     border-radius: 50%;
     background: red;
 }
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0%;
+    width: 100vw;
+    min-height: 100vh;
+    background: #383838;
+}
